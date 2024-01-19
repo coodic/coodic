@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="shortcut icon" class="logo" href="logo.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/01485634d3.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Arial', sans-serif;
+            /* Change the font family as needed */
+            background-color: #f8f9fa;
+            /* Light gray background color */
+        }
+
+        /* Custom styling for the About Us section */
+        #about-us-content {
+            background-color: #ffffff;
+            /* White background color */
+            padding: 60px 0;
+            /* Add more padding as needed */
+        }
+
+
+
+
+
+
+
+
+        nav.navbar {
+            background-color: rgba(8, 8, 8, 0.7);
+            /* Transparent black color */
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        img {
+            width: auto;
+            height: auto;
+        }
+
+
+        p {
+            font-size: 20px;
+            color: #faf8f8;
+            /* Dark gray text color for contrast */
+            text-align: left;
+            margin-bottom: 20px;
+            /* Add some space below the paragraph */
+        }
+
+
+
+
+
+
+        .container {
+            width: 100%;
+
+            /* Adjust the height as needed */
+            background: rgb(23, 34, 47);
+            background: linear-gradient(to right, #0d1321, #4588a0);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgb(241, 234, 234);
+            text-align: center;
+
+            /* Change the font family as needed */
+        }
+
+
+
+
+
+        /* Add this to your main.css or create a new CSS file */
+        .whyheading {
+            color: white;
+            font-size: 5rem;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+
+        footer {
+            background-color: #343a40;
+            /* Dark background color */
+            color: #fff;
+            /* White text color */
+            padding: 40px 0;
+            /* Adjust padding as needed */
+        }
+
+        footer h5 {
+            color: #f8f9fa;
+            /* Lighter text color for headings */
+        }
+
+        footer p,
+        footer a {
+            color: #868e96;
+            /* Lighter text color */
+        }
+
+        footer a:hover {
+            color: #fff;
+            /* White text color on hover */
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li a {
+            color: #868e96;
+            /* Lighter text color for list items */
+        }
+
+        footer ul li a:hover {
+            color: #fff;
+            /* White text color on hover */
+        }
+
+
+
+
+
+        .member-image:hover {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+    <title>Home</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#"><img class="logo" src="image/coodic.png" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active rounded-circle" href="index.html">Home </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link rounded-circle" href="community.html">Community</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link rounded-circle" href="team.html">Our team</a>
+                <li class="nav-item">
+                    <a class="nav-link rounded-circle" href="#">about</a>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section id="about-us-content">
+        <div class="container mt-5">
+            <h2 class="whyheading">About COODIC</h2>
+            <p class="lead text-center">Welcome to COODIC, where technology meets community. At COODIC, we believe in
+                the power of collaboration and innovation to drive positive change. Our community is a diverse group of
+                individuals passionate about technology and its potential to transform lives.</p>
+
+            <p class="text-center">Founded in 2024, COODIC has been on a mission to create a supportive and inclusive
+                space for tech enthusiasts, developers, and visionaries. We aim to foster learning, collaboration, and
+                the exchange of ideas that push the boundaries of what technology can achieve.</p>
+
+
+
+    </section>
+    <section id="download-section" class="container mt-5 text-center" style="padding-bottom: 20px;">
+        <h2 class="whyheading">Download Our Document</h2>
+        <p>Explore who we are by downloading the PDF version.</p>
+        <button id="download-btn" class="btn ">Download PDF</button>
+    </section>
+    <footer class="align-items-center justify-content-center mt-5">
+
+        <div class="row mt-5">
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                <h6 id="contact">Contact Us</h6>
+                <label for="whatsapp">whatsapp:</label>
+                <a href="https://chat.whatsapp.com/JThDckdyYYXLqsNAHELJvO"> <i class="fa-solid fa-phone"
+                        style="color: green;"></i></a>
+
+                <label for="email">email:</label>
+                <a href="https://mail.google.com/"> <i class="fa-solid fa-envelope"
+                        style="color:rgb(172, 91, 104) ;"></i></a>
+            </div>
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                <h6>Follow Us</h6>
+                <a href="https://github.com/coodic" class="text-white me-3"><i class="fab fa-github"></i></a>
+
+                <a href="https://www.instagram.com/coodic_/" class="text-white me-3"><i
+                        class="fab fa-instagram"></i></a>
+
+
+            </div>
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                <h6>Quick Links</h6>
+                <ul class="list-unstyled">
+
+                    <li><a href="team.html">OUR TEAM</a></li>
+                    <a href="donate_link" target="donate" class="donate">Donate</a>
+
+                </ul>
+            </div>
+
+
+        </div>
+
+        <p style="font-size: 14px; color: #fdfbfb; margin-top: 10px; text-align: center;">
+            &copy; 2024 COODIC. All Rights Reserved.
+        </p>
+
+
+    </footer>
+
+    <script src="https://kit.fontawesome.com/01485634d3.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function scrollToTarget() {
+            var target = document.getElementById('scroll-target');
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+    <script>
+        document.getElementById('download-btn').addEventListener('click', function () {
+            // Provide the path to your PDF file
+            var pdfPath = 'docs/COODIC.pdf';
+
+            // Create a link element
+            var link = document.createElement('a');
+
+            // Set the href attribute to the PDF path
+            link.href = pdfPath;
+
+            // Add the download attribute with the desired file name
+            link.download = 'docs/COODIC.pdf';
+
+            // Append the link to the document
+            document.body.appendChild(link);
+
+            // Trigger a click on the link to start the download
+            link.click();
+
+            // Remove the link from the document
+            document.body.removeChild(link);
+        });
+    </script>
+
+</body>
+
+</html>

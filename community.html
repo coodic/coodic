@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="shortcut icon" class="logo" href="logo.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/01485634d3.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    nav.navbar {
+        background-color: rgba(8, 8, 8, 0.7);
+        /* Transparent black color */
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    img {
+        width: auto;
+        height: auto;
+    }
+
+    .container-fluid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .col-lg-7 {
+
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    p {
+        font-size: 30px;
+        color: #fcf7f7;
+        /* Dark gray text color for contrast */
+        text-align: left;
+        margin-bottom: 20px;
+        /* Add some space below the paragraph */
+    }
+
+    button.btn {
+        background: linear-gradient(to right, #af4c8c, #4588a0);
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 10px;
+        animation: bounce 5s infinite;
+        /* Slightly faster bouncing animation */
+        transition: background 5s ease-in-out;
+        /* Smooth transition for background color */
+    }
+
+    button.btn:hover {
+        background: linear-gradient(to right, #4588a0, #af4c8c);
+        /* Change gradient on hover */
+    }
+
+
+
+    .scroll-down {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounceArrow 2s infinite;
+        cursor: pointer;
+    }
+
+    .container {
+        width: 100%;
+
+        /* Adjust the height as needed */
+        background: rgb(23, 34, 47);
+        background: linear-gradient(90deg, rgba(23, 34, 47, 1) 0%, rgba(23, 34, 47, 1) 100%, rgba(23, 34, 47, 1) 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        /* Change the font family as needed */
+    }
+
+    @media (max-width: 767px) {
+
+        /* Styles for screens smaller than 768px (e.g., smartphones) */
+        .container-fluid {
+            flex-direction: column;
+        }
+
+        .col-lg-7 {
+
+            display: none;
+        }
+
+        p {
+            font-size: 30px;
+        }
+    }
+
+
+    @media (max-width: 767px) {
+        /* Styles for screens smaller than 768px (e.g., smartphones) */
+
+        .container-fluid {
+            flex-direction: column;
+        }
+
+        .col-lg-7 {
+            display: none;
+        }
+
+        .card {
+            margin-bottom: 10px;
+            /* Adjust the spacing between cards */
+        }
+
+        p {
+            font-size: 20px;
+            /* Adjust font size for better readability */
+        }
+    }
+
+    /* Add this to your main.css or create a new CSS file */
+
+
+
+    footer {
+        background-color: #343a40;
+        /* Dark background color */
+        color: #fff;
+        /* White text color */
+        padding: 40px 0;
+        /* Adjust padding as needed */
+    }
+
+    footer h5 {
+        color: #f8f9fa;
+        /* Lighter text color for headings */
+    }
+
+    footer p,
+    footer a {
+        color: #868e96;
+        /* Lighter text color */
+    }
+
+    footer a:hover {
+        color: #fff;
+        /* White text color on hover */
+    }
+
+    footer ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    footer ul li a {
+        color: #868e96;
+        /* Lighter text color for list items */
+    }
+
+    footer ul li a:hover {
+        color: #fff;
+        /* White text color on hover */
+    }
+
+    #scroll-target {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
+    #scroll-target.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+
+    #community-content {
+        background: rgb(180, 58, 105);
+        background: linear-gradient(90deg, rgba(180, 58, 105, 1) 0%, rgba(39, 103, 145, 1) 69%, rgba(69, 90, 252, 0.9660656498927696) 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        padding: 50px;
+    }
+
+    #community-content h2 {
+        color: white;
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    #community-content p {
+        color: #ccc;
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    #community-content .card {
+        margin: 20px 0;
+        color: white;
+        background: rgb(23, 34, 47);
+        background: linear-gradient(90deg, rgba(23, 34, 47, 1) 0%, rgba(23, 34, 47, 1) 100%, rgba(23, 34, 47, 1) 100%);
+    }
+
+    #community-content h2,
+    #community-content h5 {
+        color: white;
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    #community-content p {
+        color: #ccc;
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        width: 80%;
+        margin: 20px 0;
+        color: white;
+        background: rgb(23, 34, 47);
+        background: linear-gradient(90deg, rgba(23, 34, 47, 1) 0%, rgba(23, 34, 47, 1) 100%, rgba(23, 34, 47, 1) 100%);
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 18px;
+    }
+
+    #join-community-btn {
+        background: linear-gradient(to right, #af4c8c, #4588a0);
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: background 0.5s ease-in-out;
+        margin-top: 20px;
+    }
+
+    #join-community-btn:hover {
+        background: linear-gradient(to right, #4588a0, #af4c8c);
+    }
+
+    #join-meeting-btn {
+        background: linear-gradient(to right, #af4c8c, #4588a0);
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.5s ease-in-out;
+        margin-top: 10px;
+    }
+
+    .donate {
+        background: linear-gradient(to right, #af4c8c, #4588a0);
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background 0.5s ease-in-out;
+        margin-top: 10px;
+    }
+
+    .donate:hover {
+        background: linear-gradient(to right, #4588a0, #af4c8c);
+    }
+
+    #join-meeting-btn:hover {
+        background: linear-gradient(to right, #4588a0, #af4c8c);
+    }
+
+    .member-image {
+        width: 100px;
+        /* Adjust the width of the circular image */
+        height: 100px;
+        /* Adjust the height of the circular image */
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 10px;
+        /* Adjust margin as needed */
+
+        /* Change to a pulse animation */
+    }
+
+    .member-image:hover {
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+        0%,
+        100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.1);
+        }
+    }
+</style>
+
+
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#"><img class="logo" src="image/coodic.png" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active rounded-circle" href="index.html">Home </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link rounded-circle" href="#">Community</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link rounded-circle" href="team.html">Our team</a>
+                <li class="nav-item">
+                    <a class="nav-link rounded-circle" href="about.html">about</a>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+
+    <section id="community-content">
+        <div class="card">
+            <h2>Welcome to Our Community</h2>
+            <p>At COODIC, we believe in building a strong and supportive community that shares a common vision for
+                positive
+                change through technology. Join us in our journey to...</p>
+            <!-- Join Our Community Button -->
+
+        </div>
+        <button id="join-community-btn">Join Our Community</button>
+        <!-- Upcoming Events -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">COODIC Monthly Meetup</h5>
+                <p class="card-text">Join us for our monthly tech talks meetup where industry experts discuss the latest
+                    trends and innovations.</p>
+                <p class="card-text"><strong>Date:</strong> January 25, 2024 | <strong>Time:</strong> 6:00 PM</p>
+                <!-- Add a Join Meeting button or link -->
+
+            </div>
+        </div>
+        <a href="your_meeting_link" target="_blank" id="join-meeting-btn">Join Meeting</a>
+        <div id="community-forum-card" class="card">
+            <div class="card-body">
+                <h2>Community Forum</h2>
+                <p>Add your forum or discussion board here. You may use third-party platforms or integrate your own
+                    solution.</p>
+                <!-- You can add a button or link to your forum here -->
+
+            </div>
+        </div>
+        <a href="your_meeting_link" target="_blank" id="join-meeting-btn">visity forum</a>
+
+        <!-- Member Spotlights -->
+
+        <div class="card">
+            <h2 style="margin-bottom:1rem;">Member Spotlights</h2>
+
+            <img class="member-image" src="strat.jpeg" alt="John Doe">
+            <div class="card-body">
+                <h5 class="card-title">John Doe</h5>
+                <p class="card-text">Meet John, a passionate developer who has been actively contributing to our
+                    community projects. Learn more about his journey...</p>
+                <!-- Add more member spotlights as needed -->
+            </div>
+        </div>
+
+
+        <div class="card">
+            <h2>Collaborate with Us</h2>
+            <p>Interested in collaborating on a project or initiative? Reach out to us at
+                <strong style="color:#af4c8c;"><b> collaboration@coodic.com</b></strong>
+            </p>
+
+            <!-- Call-to-action buttons -->
+
+        </div>
+
+    </section>
+
+
+
+    <footer class="align-items-center justify-content-center mt-5">
+
+        <div class="row mt-5">
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                <h6 id="contact">Contact Us</h6>
+                <label for="whatsapp">whatsapp:</label>
+                <a href="https://chat.whatsapp.com/JThDckdyYYXLqsNAHELJvO"> <i class="fa-solid fa-phone"
+                        style="color: green;"></i></a>
+
+                <label for="email">email:</label>
+                <a href="https://mail.google.com/"> <i class="fa-solid fa-envelope"
+                        style="color:rgb(172, 91, 104) ;"></i></a>
+            </div>
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                <h6>Follow Us</h6>
+                <a href="https://github.com/coodic" class="text-white me-3"><i class="fab fa-github"></i></a>
+
+                <a href="https://www.instagram.com/coodic_/" class="text-white me-3"><i
+                        class="fab fa-instagram"></i></a>
+
+
+            </div>
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                <h6>Quick Links</h6>
+                <ul class="list-unstyled">
+
+                    <li><a href="team.html">OUR TEAM</a></li>
+                    <a href="donate_link" target="donate" class="donate">Donate</a>
+
+                </ul>
+            </div>
+
+
+        </div>
+
+        <p style="font-size: 14px; color: #fdfbfb; margin-top: 10px; text-align: center;">
+            &copy; 2024 COODIC. All Rights Reserved.
+        </p>
+
+
+    </footer>
+
+    <!-- JavaScript for Join Our Community Button -->
+    <script src="https://kit.fontawesome.com/01485634d3.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('join-community-btn').addEventListener('click', function () {
+            // Add your logic for handling the "Join Our Community" button click event
+            alert('Button Clicked! Implement your join community logic here.');
+        });
+
+        function scrollToTarget() {
+            var target = document.getElementById('scroll-target');
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+    </section>
+</body>
+
+</html>

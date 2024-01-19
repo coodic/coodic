@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="shortcut icon" class="logo" href="logo.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/01485634d3.js" crossorigin="anonymous"></script>
+    <title>Our Team | COODIC</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: #f8f9fa;
+    }
+
+    nav.navbar {
+        background-color: rgba(8, 8, 8, 0.7);
+        /* Transparent black color */
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    img {
+        width: auto;
+        height: auto;
+    }
+
+    .container-fluid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .col-lg-7 {
+
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    p {
+        font-size: 30px;
+        color: #fcf7f7;
+        /* Dark gray text color for contrast */
+        text-align: left;
+        margin-bottom: 20px;
+        /* Add some space below the paragraph */
+    }
+
+    button.btn {
+        background: linear-gradient(to right, #af4c8c, #4588a0);
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 10px;
+        animation: bounce 5s infinite;
+        /* Slightly faster bouncing animation */
+        transition: background 5s ease-in-out;
+        /* Smooth transition for background color */
+    }
+
+    button.btn:hover {
+        background: linear-gradient(to right, #4588a0, #af4c8c);
+        /* Change gradient on hover */
+    }
+
+
+
+    .scroll-down {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounceArrow 2s infinite;
+        cursor: pointer;
+    }
+
+    .container {
+        width: 100%;
+
+        background: rgb(180, 58, 105);
+        background: linear-gradient(90deg, rgba(180, 58, 105, 1) 0%, rgba(39, 103, 145, 1) 69%, rgba(69, 90, 252, 0.9660656498927696) 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        /* Change the font family as needed */
+    }
+
+    @media (max-width: 767px) {
+
+        /* Styles for screens smaller than 768px (e.g., smartphones) */
+        .container-fluid {
+            flex-direction: column;
+        }
+
+        .col-lg-7 {
+
+            display: none;
+        }
+
+        p {
+            font-size: 30px;
+        }
+    }
+
+
+    @media (max-width: 767px) {
+        /* Styles for screens smaller than 768px (e.g., smartphones) */
+
+        .container-fluid {
+            flex-direction: column;
+        }
+
+        .col-lg-7 {
+            display: none;
+        }
+
+        .card {
+            margin-bottom: 10px;
+            /* Adjust the spacing between cards */
+        }
+
+        p {
+            font-size: 20px;
+            /* Adjust font size for better readability */
+        }
+    }
+
+    /* Add this to your main.css or create a new CSS file */
+
+
+
+    footer {
+        background-color: #343a40;
+        /* Dark background color */
+        color: #fff;
+        /* White text color */
+        padding: 40px 0;
+        /* Adjust padding as needed */
+    }
+
+    footer h5 {
+        color: #f8f9fa;
+        /* Lighter text color for headings */
+    }
+
+    footer p,
+    footer a {
+        color: #868e96;
+        /* Lighter text color */
+    }
+
+    footer a:hover {
+        color: #fff;
+        /* White text color on hover */
+    }
+
+    footer ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    footer ul li a {
+        color: #868e96;
+        /* Lighter text color for list items */
+    }
+
+    footer ul li a:hover {
+        color: #fff;
+        /* White text color on hover */
+    }
+
+    #scroll-target {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
+    #scroll-target.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+
+
+
+
+    .card {
+        width: 80%;
+        margin: 20px 0;
+        color: white;
+        background: rgb(23, 34, 47);
+        background: linear-gradient(90deg, rgba(23, 34, 47, 1) 0%, rgba(23, 34, 47, 1) 100%, rgba(23, 34, 47, 1) 100%);
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 18px;
+    }
+
+
+
+
+    .member-image {
+        width: 100px;
+        /* Adjust the width of the circular image */
+        height: 100px;
+        /* Adjust the height of the circular image */
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 10px;
+        /* Adjust margin as needed */
+
+        /* Change to a pulse animation */
+    }
+
+    .member-image:hover {
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+        0%,
+        100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.1);
+        }
+    }
+</style>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#"><img class="logo" src="image/coodic.png" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active rounded-circle" href="index.html">Home </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link rounded-circle" href="community.html">Community</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link rounded-circle" href="#">Our team</a>
+                <li class="nav-item">
+                    <a class="nav-link rounded-circle" href="about.html">about</a>
+                </li>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container  ">
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 mt-5 align-items-center justify-content-center">
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <footer class="align-items-center justify-content-center mt-5">
+
+        <div class="row mt-5">
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                <h6 id="contact">Contact Us</h6>
+                <label for="whatsapp">whatsapp:</label>
+                <a href="https://chat.whatsapp.com/JThDckdyYYXLqsNAHELJvO"> <i class="fa-solid fa-phone"
+                        style="color: green;"></i></a>
+
+                <label for="email">email:</label>
+                <a href="https://mail.google.com/"> <i class="fa-solid fa-envelope"
+                        style="color:rgb(172, 91, 104) ;"></i></a>
+            </div>
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                <h6>Follow Us</h6>
+                <a href="https://github.com/coodic" class="text-white me-3"><i class="fab fa-github"></i></a>
+
+                <a href="https://www.instagram.com/coodic_/" class="text-white me-3"><i
+                        class="fab fa-instagram"></i></a>
+
+
+            </div>
+            <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                <h6>Quick Links</h6>
+                <ul class="list-unstyled">
+
+                    <li><a href="team.html">OUR TEAM</a></li>
+                    <a href="donate_link" target="donate" class="donate">Donate</a>
+
+                </ul>
+            </div>
+
+
+        </div>
+
+        <p style="font-size: 14px; color: #fdfbfb; margin-top: 10px; text-align: center;">
+            &copy; 2024 COODIC. All Rights Reserved.
+        </p>
+
+
+    </footer>
+
+    <script src="https://kit.fontawesome.com/01485634d3.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function scrollToTarget() {
+            var target = document.getElementById('scroll-target');
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>
